@@ -56,8 +56,12 @@ ChatBot &ChatBot::operator=(ChatBot &&source) {
 }
 
 ChatBot::~ChatBot() {
-  delete _image;
-  std::cout << "ChatBot Destructor" << std::endl;
+  if (_image){
+    delete _image;
+    std::cout << "ChatBot Destructor" << std::endl;
+  } else {
+    std::cout << "ChatBot Empty-Shell Destructor" << std::endl;
+  }
 }
 
 void ChatBot::ReceiveMessageFromUser(std::string message) {
