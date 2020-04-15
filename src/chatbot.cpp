@@ -10,8 +10,6 @@
 
 // constructor WITHOUT memory allocation
 ChatBot::ChatBot() {
-  std::cout << "ChatBot Default Constructor" << std::endl;
-  // invalidate data handles
   _image = nullptr;
   _chatLogic = nullptr;
   _rootNode = nullptr;
@@ -86,12 +84,10 @@ ChatBot &ChatBot::operator=(ChatBot &&source) {
 }
 
 ChatBot::~ChatBot() {
+  std::cout << "ChatBot Destructor" << std::endl;
   if (_image != NULL){
     delete _image;
     _image = NULL;
-    std::cout << "ChatBot Destructor" << std::endl;
-  } else {
-    std::cout << "ChatBot Empty-Shell Destructor" << std::endl;
   }
 }
 

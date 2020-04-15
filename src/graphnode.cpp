@@ -18,14 +18,14 @@ void GraphNode::AddEdgeToParentNode(GraphEdge *edge) {
   _parentEdges.push_back(edge);
 }
 
-void GraphNode::MoveEdgeToChildNode(std::unique_ptr<GraphEdge> &edge) {
+void GraphNode::AddEdgeToChildNode(std::unique_ptr<GraphEdge> edge) {
   _childEdges.push_back(std::move(edge));
 }
 
 //// STUDENT CODE
 ////
-void GraphNode::MoveChatbotHere(ChatBot &&chatbot) {
-  _chatBot = ChatBot(std::move(chatbot));
+void GraphNode::MoveChatbotHere(ChatBot chatbot) {
+  _chatBot = std::move(chatbot);
   _chatBot.SetCurrentNode(this);
 }
 
